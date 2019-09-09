@@ -1,3 +1,18 @@
 body{
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8em;
+}
+@for $i from 1 to 5 {
+  h#{$i}{
+    margin: 0.67em 0;
+  }
+}
+hr{
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.1);
 }

@@ -10,11 +10,11 @@ $button-name: 'btn';
   }
 
   &:hover:not(#{$base-name}-#{$button-name}-#{$disabled}) {
-    background:darken($color, 15%);
+    background: darken($color, 15%);
     transition: all 0.3s ease;
   }
   &:active:not(#{$base-name}-#{$button-name}-#{$disabled}) {
-    background:darken($color, 25%);
+    background: darken($color, 25%);
   }
   &:focus:not(#{$base-name}-#{$button-name}-#{$disabled}) {
     box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
@@ -23,23 +23,22 @@ $button-name: 'btn';
 
 #{$base-name}-#{$button-name}{
   border: none;
-  border-radius: 3px;
   margin: 0 5px;
   outline: 0;
   cursor: pointer;
   @include button-theme(#dddddd, 'default');
   
   &#{$base-name}-#{$button-name}-#{$small}{
-      padding: 3px 5px;
-      font-size: 0.8em;
+    padding: 3px 5px;
+    font-size: 0.8em;
   }
   &#{$base-name}-#{$button-name}-#{$medium}{
-      padding: 5px 10px;
-      font-size: 1.2em;
+    padding: 5px 10px;
+    font-size: 1.2em;
   }
   &#{$base-name}-#{$button-name}-#{$large}{
-      padding: 7px 15px;
-      font-size: 1.6em;
+    padding: 7px 15px;
+    font-size: 1.6em;
   }
   @each $name, $color in $colors {
     &#{$base-name}-#{$button-name}-#{$name}{
