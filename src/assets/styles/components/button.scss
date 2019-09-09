@@ -9,16 +9,15 @@ $button-name: 'btn';
     color: #ffffff;
   }
 
-  &:hover {
+  &:hover:not(#{$base-name}-#{$button-name}-#{$disabled}) {
     background:darken($color, 15%);
     transition: all 0.3s ease;
   }
-  &:active {
+  &:active:not(#{$base-name}-#{$button-name}-#{$disabled}) {
     background:darken($color, 25%);
   }
-  &:focus {
+  &:focus:not(#{$base-name}-#{$button-name}-#{$disabled}) {
     box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
-    outline: 0;
   }
 }
 
@@ -26,6 +25,7 @@ $button-name: 'btn';
   border: none;
   border-radius: 3px;
   margin: 0 5px;
+  outline: 0;
   cursor: pointer;
   @include button-theme(#dddddd, 'default');
   
@@ -45,5 +45,9 @@ $button-name: 'btn';
     &#{$base-name}-#{$button-name}-#{$name}{
       @include button-theme($color, $name);
     }
+  }
+  &#{$base-name}-#{$button-name}-#{$disabled}{
+    opacity: .65;
+    cursor: no-drop;
   }
 }
