@@ -8,57 +8,39 @@
 </template>
 
 <script>
-const baseClass = 's4n-btn'
+import { BaseMixin } from '@/mixins/BaseMixin'
 
 export default {
   name: 'S4NButton',
 
   props: {
-    // Sizes
-    small: Boolean,
-    medium: Boolean,
-    large: Boolean,
-    // Colors
-    primary: Boolean,
-    warning: Boolean,
-    info: Boolean,
-    error: Boolean,
-    dark: Boolean,
-    light: Boolean,
-    link: Boolean,
-    success: Boolean,
     // Store
     disabled: Boolean
   },
 
-  computed: {
-    getSize: function () {
-      if (this.small) return ' ' + baseClass + '-small'
-      if (this.large) return ' ' + baseClass + '-large'
-      return ' ' + baseClass + '-medium'
-    },
-    getClasses: function () {
-      let currentClasses = baseClass
-      // Size class
-      currentClasses += this.getSize
-      // Colors classes
-      if (this.primary) currentClasses += ' ' + baseClass + '-primary'
-      if (this.warning) currentClasses += ' ' + baseClass + '-warning'
-      if (this.info) currentClasses += ' ' + baseClass + '-info'
-      if (this.error) currentClasses += ' ' + baseClass + '-error'
-      if (this.dark) currentClasses += ' ' + baseClass + '-dark'
-      if (this.light) currentClasses += ' ' + baseClass + '-light'
-      if (this.link) currentClasses += ' ' + baseClass + '-link'
-      if (this.success) currentClasses += ' ' + baseClass + '-success'
-      // Store classes
-      if (this.disabled) currentClasses += ' ' + baseClass + '-disabled'
+  data: () => {
+    return {
+      baseClass: 's4n-btn'
+    }
+  },
 
+  mixins: [ BaseMixin ],
+
+  computed: {
+    getClasses () {
+      let currentClasses = this.baseClass
+      // Size class
+      currentClasses += this.getSizeClass
+      // Color class
+      currentClasses += this.getColorClass
+      // Store classes
+      if (this.disabled) currentClasses += ' ' + this.baseClass + '-disabled'
       return currentClasses
     }
   },
 
   methods: {
-    onClick: function (event) {
+    onClick (event) {
       this.$emit('click', event)
     }
   }
